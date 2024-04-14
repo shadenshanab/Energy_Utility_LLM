@@ -18,7 +18,7 @@ def main():
     print("Database created successfully.")
 
     print("Launching the bot GUI...")
-    run_script('bot_gui.py')
+    run_script('app.py')
 
 
 if __name__ == '__main__':

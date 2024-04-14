@@ -15,6 +15,8 @@ load_dotenv()
 openai_api_key = os.getenv("OPENAI_API_KEY")
 CHROMA_PATH = "chroma"
 DATA_PATH = "datasets"
+os.makedirs(CHROMA_PATH, exist_ok=True)
+os.makedirs(DATA_PATH, exist_ok=True)
 
 
 def main():

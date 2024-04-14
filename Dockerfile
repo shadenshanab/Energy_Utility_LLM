@@ -18,11 +18,8 @@ COPY . /app
 RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install "unstructured[md]"
 
-# Make port 80 available to the world outside this container
-EXPOSE 80
+EXPOSE 8080
 
-# Define environment variable
 ENV NAME World
 
-# Command to run on container start
 CMD ["python", "main.py"]
