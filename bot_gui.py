@@ -12,7 +12,7 @@ class ChatApplication(QWidget):
     def initUI(self):
         """Sets up the user interface for the chat application."""
         self.setWindowTitle('Utility Bot Chat')
-        self.setGeometry(100, 100, 400, 600) 
+        self.setGeometry(100, 100, 400, 600)
 
         # Chat history area
         self.conversation = QTextEdit(self)
@@ -65,3 +65,40 @@ if __name__ == '__main__':
     ex.show()
     sys.exit(app.exec_())
 
+
+# import sys
+# import warnings
+# from query_data import fetch_response
+#
+# warnings.filterwarnings("ignore", category=DeprecationWarning)
+#
+# class ChatApplication:
+#     def __init__(self):
+#         self.conversation_history = []
+#
+#     def run(self):
+#         """Runs the command line chat interface."""
+#         print("Welcome to Utility Bot Chat. Type 'quit' to exit.")
+#         while True:
+#             user_input = input("You: ").strip()
+#             if user_input.lower() == 'quit':
+#                 print("Exiting chat...")
+#                 break
+#
+#             if user_input:
+#                 response = fetch_response(user_input)
+#                 self.update_conversation("Response: " + response + "\n" + "-----")
+#                 self.display_conversation()
+#
+#     def update_conversation(self, message):
+#         """Updates the conversation display by appending a new message."""
+#         self.conversation_history.append(message)
+#
+#     def display_conversation(self):
+#         """Displays only the most recent bot response."""
+#         sys.stdout.write("\x1b[2J\x1b[H")  # Clear the console screen
+#         print(self.conversation_history[-1])
+#
+# if __name__ == '__main__':
+#     chat_app = ChatApplication()
+#     chat_app.run()

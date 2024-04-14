@@ -1,8 +1,8 @@
-from langchain.document_loaders import DirectoryLoader
+from langchain_community.document_loaders import DirectoryLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.schema import Document
-from langchain.embeddings import OpenAIEmbeddings
-from langchain.vectorstores.chroma import Chroma
+from langchain_community.embeddings import OpenAIEmbeddings
+from langchain_community.vectorstores.chroma import Chroma
 import os
 import shutil
 import requests
@@ -19,18 +19,15 @@ DATA_PATH = "datasets"
 
 def main():
     """Main function to initiate the fetching and processing of articles."""
-    # topics = [
-    #     "electricity utilities", "water supply utilities", "telecommunications utilities",
-    #     "natural gas utilities", "renewable energy utilities", "nuclear energy utilities",
-    #     "thermal power utilities", "energy storage utilities", "energy distribution utilities",
-    #     "energy efficiency utilities"
-    # ]
     topics = [
-        "electricity utilities", "water supply utilities", "telecommunications utilities"
+        "electricity utilities", "water supply utilities", "telecommunications utilities",
+        "natural gas utilities", "renewable energy utilities", "nuclear energy utilities",
+        "thermal power utilities", "energy storage utilities", "energy distribution utilities",
+        "energy efficiency utilities"
     ]
 
     for topic in topics:
-        print(topic)
+        print("Downloading " + topic + " articles.")
         fetch_and_save_wikipedia_articles(topic, DATA_PATH)
 
     print("generating data store")
@@ -54,7 +51,7 @@ def fetch_and_save_wikipedia_articles(topic, directory):
         "format": "json",
         "list": "search",
         "srsearch": topic,
-        "srlimit": 10
+        "srlimit": 100
     }
 
     response = session.get(url=url, params=params)
