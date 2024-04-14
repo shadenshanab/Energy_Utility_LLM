@@ -24,7 +24,7 @@ This Python project aims to enhance internal development and business processes 
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://your-repository-url.git
+   git clone [https://github.com/shadenshanab/Energy_Utility_LLM.git]
    cd your-project-directory
    
 2. **Environment Variables**:
